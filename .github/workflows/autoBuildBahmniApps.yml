@@ -23,8 +23,26 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 10.x
-    - run: npm install
-    - run: npm install -g bower
-    - run: npm install -g grunt
-    - run: bower install
-    - run: grunt
+        
+    - name: Use ruby 2.7
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '2.7'
+   
+    - name: Get module Bower
+      run: npm install -g bower
+      
+    - name: Get module Grunt
+      run: npm install -g grunt
+      
+    - name: Get module required for sass (scss)
+      run: gem install compass
+      
+    - name: Get node dependencies
+      run: npm install
+      
+    - name: Set up UI component/dependencies
+      run: bower install
+      
+    - name: Build the application (into dist folder) using Grunt
+      run: grunt
