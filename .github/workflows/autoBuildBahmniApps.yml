@@ -45,4 +45,4 @@ jobs:
       run: bower install
       
     - name: Build the application (into dist folder) using Grunt
-      run: grunt
+      run: grunt --force
