@@ -56,11 +56,11 @@ jobs:
     - name: Where am I
       run: pwd
       
-    - name: Grab the dist folder
-      uses: actions/upload-artifact@v2
-      with:
-       name: bahmniapps_release_1515_28012021
-       path: /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
+   # - name: Grab the dist folder
+   #   uses: actions/upload-artifact@v2
+   #   with:
+   #    name: bahmniapps_release_1515_28012021
+   #    path: /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
 
 
     - name: Pushes to another repository
@@ -68,7 +68,7 @@ jobs:
       env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-          source-directory: '/home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist'
+          source-directory: /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist
           destination-github-username: 'lmphatsi'
           destination-repository-name: 'bahmniapps_release'
           user-email: la.mphatsi@gmail.com
