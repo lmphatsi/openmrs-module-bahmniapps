@@ -69,5 +69,5 @@ jobs:
         username: ${{ secrets.USERNAME }}
         port: ${{ secrets.PORT }}
         password: ${{ secrets.PASSWORD }}
-        source: "dist_2301_28012021.tar.gz"
+        source: "/home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist_2301_28012021.tar.gz"
         target: "test"
