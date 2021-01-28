@@ -46,3 +46,12 @@ jobs:
       
     - name: Build the application (into dist folder) using Grunt
       run: grunt --force
+      
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/upload-artifact@v2
+      with:
+       name: bahmniapps_release_0852_28012021
+       path: dist
+       needs: build
