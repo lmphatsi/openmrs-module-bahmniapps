@@ -47,13 +47,15 @@ jobs:
     - name: Build the application (into dist folder) using Grunt
       run: grunt --force
       
-  release:
-    runs-on: ubuntu-latest
-    steps:
-    - name: List files
+    - name: List output files
       run: ls
-    - name: where am I
+
+    - name: List dist files
+      run: cd dist && ls
+      
+    - name: Where am I
       run: pwd
+      
     - name: Create Tarball
       run: tar -zcvf dist.tar.gz /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
      
@@ -66,4 +68,3 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         source: "dist_2301_28012021.tar.gz"
         target: "test"
-    needs: build
