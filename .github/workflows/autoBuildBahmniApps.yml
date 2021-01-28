@@ -50,6 +50,10 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+    - name: List files
+      run: ls
+    - name: where am I
+      run: pwd
     - name: Create Tarball
       run: tar -zcvf dist.tar.gz /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
      
