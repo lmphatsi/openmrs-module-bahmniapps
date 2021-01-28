@@ -53,6 +53,9 @@ jobs:
     - name: List dist files
       run: cd dist && ls
       
+    - name: Where am I
+      run: pwd
+      
     - name: Grab the dist folder
       uses: actions/upload-artifact@v2
       with:
