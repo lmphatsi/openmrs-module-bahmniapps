@@ -52,3 +52,9 @@ jobs:
 
     - name: List dist files
       run: cd dist && ls
+      
+    - name: Grab the dist folder
+      uses: actions/upload-artifact@v2
+      with:
+       name: bahmniapps_release_0852_28012021
+       path: dist/
