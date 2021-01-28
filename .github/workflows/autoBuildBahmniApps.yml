@@ -57,8 +57,11 @@ jobs:
       run: pwd
       
     - name: Create Tarball
-      run: tar -zcvf dist.tar.gz /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
+      run: tar -zcvf dist_2301_28012021.tar.gz /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
      
+    - name: List output files
+      run: ls 
+    
     - name: Ship to remote host
       uses: appleboy/scp-action@master
       with:
