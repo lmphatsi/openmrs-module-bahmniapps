@@ -68,9 +68,9 @@ jobs:
       env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-          source-directory: /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
-          destination-github-username: lmphatsi
-          destination-repository-name: bahmniapps_release
+          source-directory: '/home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/'
+          destination-github-username: 'lmphatsi'
+          destination-repository-name: 'bahmniapps_release'
           user-email: la.mphatsi@gmail.com
           commit-message: Publishing Bahmniapps release on 2054_28012021
     - name: Test get variable exported by push-to-another-repository
