@@ -47,31 +47,19 @@ jobs:
     - name: Build the application (into dist folder) using Grunt
       run: grunt --force
       
-    - name: List output files
-      run: ls
-
-    - name: List dist files
-      run: cd dist && ls
-      
-    - name: Where am I
-      run: pwd
-      
-   # - name: Grab the dist folder
-   #   uses: actions/upload-artifact@v2
-   #   with:
-   #    name: bahmniapps_release_1515_28012021
-   #    path: /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
-
-
-    - name: Pushes to another repository
-      uses: cpina/github-action-push-to-another-repository@cp_instead_of_deleting
-      env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create Tarball
+      run: tar -zcvf dist.tar.gz /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
+     
+    - name: Ship to remote host
+      uses: appleboy/scp-action@master
       with:
-          source-directory: /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist
-          destination-github-username: 'lmphatsi'
-          destination-repository-name: 'bahmniapps_release'
-          user-email: la.mphatsi@gmail.com
-          commit-message: Publishing Bahmniapps release on 2054_28012021
-    - name: Test get variable exported by push-to-another-repository
-      run: echo $DESTINATION_CLONED_DIRECTORY
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        port: ${{ secrets.PORT }}
+        password: ${{ secrets.PASSWORD }}
+        source: "dist_2301_28012021.tar.gz"
+        target: "test"
+    needs: build
