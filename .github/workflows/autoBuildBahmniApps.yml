@@ -53,5 +53,5 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
        name: bahmniapps_release_0852_28012021
-       path: dist
+       path: ui/dist
        needs: build
