@@ -61,6 +61,8 @@ jobs:
         cd /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
         git init
         git add .
+        git config --global user.email "la.mphatsi@gmail.com"
+        git config --global user.name "lmphatsi"
         git commit -m "release changes to production code (dist)"
         git remote add github https://github.com/lmphatsi/bahmniapps_release.git
         git push -f github master      
