@@ -55,14 +55,20 @@ jobs:
       
     - name: Where am I
       run: pwd
-      
-    - name: Create Tarball
-      run: tar -zcvf dist_2301_28012021.tar.gz /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
      
-    - name: List output files
-      run: git --version 
+    - name: Push production code to release repo
+      run: |
+        cd /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
+        git init
+        git add .
+        git commit -m "release changes to production code (dist)"
+        git remote add github https://github.com/lmphatsi/bahmniapps_release.git
+        git push -f github master      
     
-    - name: Ship to remote host
+    - name: Create Tarball of the build (production code)
+      run: tar -zcvf dist_2301_28012021.tar.gz /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
+    
+    - name: Ship the build to remote host
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.HOST }}
