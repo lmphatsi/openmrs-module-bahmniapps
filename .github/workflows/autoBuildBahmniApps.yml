@@ -57,8 +57,6 @@ jobs:
       run: pwd
      
     - name: Push production code to release repo
-      env:
-          GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
       run: |
         cd /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
         git init
@@ -69,7 +67,7 @@ jobs:
         git remote add github https://github.com/lmphatsi/bahmniapps_release.git
         git push -f github master
         with:
-        repo-token: ${{ secrets.API_TOKEN_GITHUB }}   
+          repo-token: ${{ secrets.GITHUB_TOKEN }}   
     
     - name: Create Tarball of the build (production code)
       run: tar -zcvf dist_2301_28012021.tar.gz /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
