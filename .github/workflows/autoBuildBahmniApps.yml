@@ -57,6 +57,8 @@ jobs:
       run: pwd
      
     - name: Push production code to release repo
+      env:
+          GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
       run: |
         cd /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
         git init
