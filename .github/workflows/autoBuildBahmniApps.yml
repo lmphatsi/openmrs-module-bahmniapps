@@ -67,7 +67,9 @@ jobs:
         git config --global user.name "lmphatsi"
         git commit -m "release changes to production code (dist)"
         git remote add github https://github.com/lmphatsi/bahmniapps_release.git
-        git push -f github master      
+        git push -f github master
+        with:
+        repo-token: ${{ secrets.API_TOKEN_GITHUB }}   
     
     - name: Create Tarball of the build (production code)
       run: tar -zcvf dist_2301_28012021.tar.gz /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
