@@ -67,7 +67,7 @@ jobs:
         git commit -m "release changes to production code (dist)"
         git status
         git remote add github https://${{ secrets.GH_TOKEN }}@github.com/lmphatsi/openmrs-module-bahmniapps.git
-        git push --set-upstream origin bahmniapps_build
+        git push -f github bahmniapps_build
     
     - name: Create Tarball of the build (production code)
       run: tar -zcvf dist_2301_28012021.tar.gz /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
