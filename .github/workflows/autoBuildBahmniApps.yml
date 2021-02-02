@@ -60,6 +60,7 @@ jobs:
       run: |
         cd /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
         git init
+        git branch -m bahmniapps_build
         git add .
         git config --global user.email "la.mphatsi@gmail.com"
         git config --global user.name "lmphatsi"
