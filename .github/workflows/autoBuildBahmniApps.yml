@@ -64,7 +64,7 @@ jobs:
         git config --global user.email "la.mphatsi@gmail.com"
         git config --global user.name "lmphatsi"
         git commit -m "release changes to production code (dist)"
-        # git branch --set-upstream origin buildrelease
+        git branch --set-upstream origin buildrelease
         git remote add github https://${{ secrets.GH_TOKEN }}@github.com/lmphatsi/openmrs-module-bahmniapps.git
         git push -f github buildrelease  
     
